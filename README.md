@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+#  Jeet Library — Website
+
+Jeet PG is a modern and responsive PG/Hostel website built using **Next.js**, designed to showcase amenities, rooms, pricing, and help users send inquiries easily.  
+This project is bootstrapped with **create-next-app**.
+
+---
+
+##  Getting Started
+
+First, install dependencies:
 
 ```bash
-npm run dev
+pnpm install
 # or
-yarn dev
-# or
+bun install
+````
+
+Run the development server:
+
+```bash
 pnpm dev
 # or
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open your browser and go to:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+👉 **[http://localhost:3000](http://localhost:3000)**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧩 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+/
+├─ app/
+│  ├─ page.tsx          # Home page
+│  ├─ layout.tsx        # Root layout
+│  ├─ (routes)/         # Additional pages
+│  └─ components/       # UI components
+│
+├─ public/              # Static assets (images, icons)
+├─ styles/              # Global styles
+├─ package.json
+└─ README.md
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+##  Features
 
-## Deploy on Vercel
+*  Built with **Next.js 14**
+*  Uses **Tailwind CSS** for styling
+*  Fully responsive for mobile, tablet, desktop
+*  Fast performance and SEO-friendly
+*  Uses **next/font** to optimize fonts
+*  Easy to customize content (rooms, pricing, gallery)
+*  Ready for form integration (contact/inquiry)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+##  Editing Pages
+
+You can start editing the homepage by modifying:
+
+```
+app/page.tsx
+```
+
+The page will auto-update as you save changes.
+
+Fonts are handled automatically using **next/font** (Geist).
+
+---
+
+##  Learn More
+
+Useful resources to learn and explore more about Next.js:
+
+*  **Next.js Documentation**: [https://nextjs.org/docs](https://nextjs.org/docs)
+*  **Learn Next.js (Interactive Tutorial)**: [https://nextjs.org/learn](https://nextjs.org/learn)
+*  **Next.js GitHub Repository**: [https://github.com/vercel/next.js](https://github.com/vercel/next.js)
+
+Your feedback and contributions are always welcome!
+
+---
+
+##  Deploy on Vercel
+
+The easiest way to deploy this Next.js project is using **Vercel** — the creators of Next.js.
+
+Deployment guide:
+[https://nextjs.org/docs/app/building-your-application/deploying](https://nextjs.org/docs/app/building-your-application/deploying)
+
+---
+
+##  License
+
+This project is for Jeet PG website development.
+You may customize it as needed.
+
+---
+
+##  Author
+
+**Developed by:** *Anup Mishra*
+
