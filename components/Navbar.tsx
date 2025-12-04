@@ -25,10 +25,10 @@ const Navbar: React.FC = () => {
     { name: "Home", href: "/" },
     { name: "About", href: "#about" },
     { name: "Admin", href: "#admin" },
-    { name: "Facility", href: "#facility" },
+    { name: "Facility", href: "/facility" },
     { name: "Gallery", href: "#gallery" },
     { name: "Contact", href: "/contact" },
-  ];
+  ];'[kvo'
 
   return (
     <>
