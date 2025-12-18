@@ -12,7 +12,7 @@ import {
   Coffee,
   Users,
   BookOpen,
-  Sparkles
+  // Sparkles
 } from 'lucide-react';
 
 const FacilitiesPage = () => {

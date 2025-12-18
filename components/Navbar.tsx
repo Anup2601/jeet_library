@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface NavLink {
   name: string;
@@ -31,11 +32,10 @@ const Navbar: React.FC = () => {
     { name: "Admin", href: "/admin" },
     { name: "Facility", href: "/facility" },
     { name: "Contact", href: "/contact" },
-  ];'[kvo'
+  ];
 
   return (
     <>
-      {/* Dark overlay when menu is open */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/60 backdrop-blur-md z-40 md:hidden"
@@ -53,35 +53,38 @@ const Navbar: React.FC = () => {
         <div className="w-full px-16 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <a
+            <Link
               href="/"
               className="text-2xl px-8 font-bold text-white hover:text-cyan-400 transition-colors duration-300"
             >
               Jeet Library
-            </a>
+            </Link>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   className="text-gray-300 hover:text-cyan-400 transition-all duration-300 font-medium text-lg relative group"
                 >
                   {link.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                </Link>
               ))}
 
-              {/* Action Buttons */}
               <div className="flex items-center space-x-3">
-          <Button
-            variant="outline"
-            className="bg-black px-8 py-6 text-lg hover:scale-105 transition duration-300 ease-in-out z-10 cursor-pointer text-white"
-            onClick={()=> router.push("https://www.google.com/maps?q=28.4815556,77.5002778")}
-          >
-            Visit Us
-          </Button>
+                <Button
+                  variant="outline"
+                  className="bg-black px-8 py-6 text-lg hover:scale-105 transition duration-300 ease-in-out z-10 cursor-pointer text-white"
+                  onClick={() =>
+                    router.push(
+                      "https://www.google.com/maps?q=28.4815556,77.5002778"
+                    )
+                  }
+                >
+                  Visit Us
+                </Button>
               </div>
             </div>
 
@@ -106,7 +109,7 @@ const Navbar: React.FC = () => {
         >
           <div className="mx-4 mt-2 px-4 pt-4 pb-6 space-y-3 bg-gradient-to-b from-black via-gray-900 to-black rounded-2xl shadow-xl border border-cyan-500/20 backdrop-blur-xl">
             {navLinks.map((link, index) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
@@ -118,10 +121,9 @@ const Navbar: React.FC = () => {
                 }}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
 
-            {/* CTA Buttons */}
             <div className="pt-4 space-y-3 border-t border-cyan-500/20">
               <a
                 href="#book"
@@ -144,7 +146,6 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      {/* Animation */}
       <style jsx>{`
         @keyframes slideIn {
           from {

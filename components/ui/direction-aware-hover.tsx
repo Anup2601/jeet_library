@@ -1,9 +1,11 @@
 "use client";
 
 import { useRef, useState } from "react";
-
+import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
+
+type HoverDirection = "top" | "bottom" | "left" | "right";
 
 export const DirectionAwareHover = ({
   imageUrl,
@@ -20,18 +22,16 @@ export const DirectionAwareHover = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const [direction, setDirection] = useState<
-    "top" | "bottom" | "left" | "right" | string
-  >("left");
+  const [direction, setDirection] = useState<HoverDirection>("left");
 
   const handleMouseEnter = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     if (!ref.current) return;
 
-    const direction = getDirection(event, ref.current);
-    console.log("direction", direction);
-    switch (direction) {
+    const dir = getDirection(event, ref.current);
+
+    switch (dir) {
       case 0:
         setDirection("top");
         break;
@@ -46,19 +46,18 @@ export const DirectionAwareHover = ({
         break;
       default:
         setDirection("left");
-        break;
     }
   };
 
   const getDirection = (
     ev: React.MouseEvent<HTMLDivElement, MouseEvent>,
     obj: HTMLElement
-  ) => {
+  ): 0 | 1 | 2 | 3 => {
     const { width: w, height: h, left, top } = obj.getBoundingClientRect();
     const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1);
     const y = ev.clientY - top - (h / 2) * (h > w ? w / h : 1);
     const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
-    return d;
+    return d as 0 | 1 | 2 | 3;
   };
 
   return (
@@ -78,6 +77,7 @@ export const DirectionAwareHover = ({
           exit="exit"
         >
           <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500" />
+
           <motion.div
             variants={variants}
             className="h-full w-full relative bg-gray-50 dark:bg-black"
@@ -86,17 +86,18 @@ export const DirectionAwareHover = ({
               ease: "easeOut",
             }}
           >
-            <img
+            <Image
+              src={imageUrl}
               alt="image"
+              fill
               className={cn(
-                "h-full w-full object-cover scale-[1.15]",
+                "object-cover scale-[1.15]",
                 imageClassName
               )}
-              width="1000"
-              height="1000"
-              src={imageUrl}
+              sizes="(max-width: 768px) 100vw, 400px"
             />
           </motion.div>
+
           <motion.div
             variants={textVariants}
             transition={{
@@ -117,53 +118,19 @@ export const DirectionAwareHover = ({
 };
 
 const variants = {
-  initial: {
-    x: 0,
-  },
-
-  exit: {
-    x: 0,
-    y: 0,
-  },
-  top: {
-    y: 20,
-  },
-  bottom: {
-    y: -20,
-  },
-  left: {
-    x: 20,
-  },
-  right: {
-    x: -20,
-  },
+  initial: { x: 0, y: 0 },
+  exit: { x: 0, y: 0 },
+  top: { y: 20 },
+  bottom: { y: -20 },
+  left: { x: 20 },
+  right: { x: -20 },
 };
 
 const textVariants = {
-  initial: {
-    y: 0,
-    x: 0,
-    opacity: 0,
-  },
-  exit: {
-    y: 0,
-    x: 0,
-    opacity: 0,
-  },
-  top: {
-    y: -20,
-    opacity: 1,
-  },
-  bottom: {
-    y: 2,
-    opacity: 1,
-  },
-  left: {
-    x: -2,
-    opacity: 1,
-  },
-  right: {
-    x: 20,
-    opacity: 1,
-  },
+  initial: { y: 0, x: 0, opacity: 0 },
+  exit: { y: 0, x: 0, opacity: 0 },
+  top: { y: -20, opacity: 1 },
+  bottom: { y: 2, opacity: 1 },
+  left: { x: -2, opacity: 1 },
+  right: { x: 20, opacity: 1 },
 };

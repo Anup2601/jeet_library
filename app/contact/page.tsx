@@ -5,13 +5,13 @@ import {
   Mail,
   MapPin,
   Send,
-  Facebook,
-  Instagram,
-  Twitter,
-  Linkedin,
-  MessageCircle,
+  // Facebook,
+  // Instagram,
+  // Twitter,
+  // Linkedin,
+  // MessageCircle,
   Clock,
-  Navigation,
+  // Navigation,
 } from "lucide-react";
 
 interface FormDataType {
@@ -28,12 +28,12 @@ interface ContactInfoType {
   action: string | null;
 }
 
-interface SocialLinkType {
-  icon: React.ReactNode;
-  name: string;
-  url: string;
-  color: string;
-}
+// interface SocialLinkType {
+//   icon: React.ReactNode;
+//   name: string;
+//   url: string;
+//   color: string;
+// }
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState<FormDataType>({
@@ -118,32 +118,32 @@ const ContactPage: React.FC = () => {
     },
   ];
 
-  const socialLinks: SocialLinkType[] = [
-    {
-      icon: <Facebook className="w-5 h-5" />,
-      name: "Facebook",
-      url: "#",
-      color: "hover:bg-blue-600",
-    },
-    {
-      icon: <Instagram className="w-5 h-5" />,
-      name: "Instagram",
-      url: "#",
-      color: "hover:bg-pink-600",
-    },
-    {
-      icon: <Twitter className="w-5 h-5" />,
-      name: "Twitter",
-      url: "#",
-      color: "hover:bg-sky-500",
-    },
-    {
-      icon: <Linkedin className="w-5 h-5" />,
-      name: "LinkedIn",
-      url: "#",
-      color: "hover:bg-blue-700",
-    },
-  ];
+  // const socialLinks: SocialLinkType[] = [
+  //   {
+  //     icon: <Facebook className="w-5 h-5" />,
+  //     name: "Facebook",
+  //     url: "#",
+  //     color: "hover:bg-blue-600",
+  //   },
+  //   {
+  //     icon: <Instagram className="w-5 h-5" />,
+  //     name: "Instagram",
+  //     url: "#",
+  //     color: "hover:bg-pink-600",
+  //   },
+  //   {
+  //     icon: <Twitter className="w-5 h-5" />,
+  //     name: "Twitter",
+  //     url: "#",
+  //     color: "hover:bg-sky-500",
+  //   },
+  //   {
+  //     icon: <Linkedin className="w-5 h-5" />,
+  //     name: "LinkedIn",
+  //     url: "#",
+  //     color: "hover:bg-blue-700",
+  //   },
+  // ];
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -153,8 +153,8 @@ const ContactPage: React.FC = () => {
           Get In Touch
         </h1>
         <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-          Have questions? We'd love to hear from you. Send us a message and
-          we'll respond as soon as possible.
+        Have questions? We&apos;d love to hear from you.
+         We&apos;ll respond as soon as possible.
         </p>
       </div>
 
@@ -189,7 +189,7 @@ const ContactPage: React.FC = () => {
 
             {showAlert && (
               <div className="mb-4 p-3 rounded-xl bg-cyan-400/20 border border-cyan-400 text-cyan-300">
-                Message sent! We'll get back to you soon.
+                Message sent! We&apos;ll get back to you soon.
               </div>
             )}
 

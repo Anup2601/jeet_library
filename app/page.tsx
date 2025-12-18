@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BackgroundLines } from "@/components/ui/background-lines";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 import { facilities, galleryImages, highlights, plans, testimonials } from "@/config/Data";
 import { useRouter } from "next/navigation";
 

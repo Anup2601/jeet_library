@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useCallback } from 'react';
 import { MonthSelector } from '@/components/MonthSelector';
 import { PaymentTable } from '@/components/PaymentTable';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
@@ -20,31 +20,55 @@ export default function PaymentAdminPage() {
   }, []);
 
   // Fetch payments when month changes
-  useEffect(() => {
-    if (selectedMonth) {
-      fetchPayments(selectedMonth);
-    }
-  }, [selectedMonth]);
+  // useEffect(() => {
+  //   if (selectedMonth) {
+  //     fetchPayments(selectedMonth);
+  //   }
+  // }, [selectedMonth]);
 
   // Fetch payments from API
-  const fetchPayments = async (month: string) => {
-    setIsLoading(true);
-    try {
-      const response = await fetch(`/api/getPayments?month=${month}`);
-      const data = await response.json();
+  // const fetchPayments = async (month: string) => {
+  //   setIsLoading(true);
+  //   try {
+  //     const response = await fetch(`/api/getPayments?month=${month}`);
+  //     const data = await response.json();
       
-      if (data.success) {
-        setPayments(data.payments);
-      } else {
-        showToast('Failed to fetch payments', 'error');
-      }
-    } catch (error) {
-      showToast('Error loading payments', 'error');
-      console.error('Fetch error:', error);
-    } finally {
-      setIsLoading(false);
+  //     if (data.success) {
+  //       setPayments(data.payments);
+  //     } else {
+  //       showToast('Failed to fetch payments', 'error');
+  //     }
+  //   } catch (error) {
+  //     showToast('Error loading payments', 'error');
+  //     console.error('Fetch error:', error);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+  const fetchPayments = useCallback(async (month: string) => {
+  setIsLoading(true);
+  try {
+    const response = await fetch(`/api/getPayments?month=${month}`);
+    const data = await response.json();
+
+    if (data.success) {
+      setPayments(data.payments);
+    } else {
+      showToast('Failed to fetch payments', 'error');
     }
-  };
+  } catch (error) {
+    showToast('Error loading payments', 'error');
+    console.error('Fetch error:', error);
+  } finally {
+    setIsLoading(false);
+  }
+}, []);
+
+  useEffect(() => {
+  if (selectedMonth) {
+    fetchPayments(selectedMonth);
+  }
+}, [selectedMonth, fetchPayments]);
 
   // Send reminder to student
   const handleSendReminder = async (payment: PaymentRow) => {

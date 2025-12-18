@@ -220,7 +220,7 @@ function DataTable({ data, onViewDetails }: { data: StudentData[]; onViewDetails
             <tr>
               <th className="px-4 py-3 text-left font-semibold text-white">Seat No</th>
               <th className="px-4 py-3 text-left font-semibold text-white">Student Name</th>
-              <th className="px-4 py-3 text-left font-semibold text-white">Father's Name</th>
+              <th className="px-4 py-3 text-left font-semibold text-white">Father&apos;s</th>
               <th className="px-4 py-3 text-left font-semibold text-white">Gender</th>
               <th className="px-4 py-3 text-left font-semibold text-white">Mobile No</th>
               <th className="px-4 py-3 text-left font-semibold text-white">Email ID</th>
