@@ -20,7 +20,7 @@ export async function GET() {
     return NextResponse.json({
       accessToken: accessToken.token,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Google Auth Error:', error);
     return NextResponse.json(
       { error: 'Failed to get Google access token' },

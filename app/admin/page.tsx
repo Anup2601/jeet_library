@@ -290,7 +290,7 @@ function StudentDetailsModal({ student, onClose }: { student: StudentData; onClo
                 <p className="text-sm text-white mt-1">{student['Student Name']}</p>
               </div>
               <div>
-                <label className="text-xs font-medium text-white uppercase">Father's Name</label>
+                <label className="text-xs font-medium text-white uppercase">Father&apos;s Name</label>
                 <p className="text-sm text-white mt-1">{student["Father's Name"]}</p>
               </div>
               <div>

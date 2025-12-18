@@ -131,7 +131,7 @@ const AboutPage = () => {
                     focus entirely on their academic pursuits.
                   </p>
                   <p className="text-gray-300 text-lg leading-relaxed">
-                    Over the years, we've grown from that modest beginning to become a premier learning 
+                    Over the years, we&apos;ve grown from that modest beginning to become a premier learning 
                     center with over 250 seats, a vast collection of books and digital resources, and a 
                     community of thousands of successful students. Our journey has been marked by continuous 
                     innovation, expansion, and an unwavering commitment to student success.
@@ -210,7 +210,7 @@ const AboutPage = () => {
               <Star className="w-8 h-8 text-cyan-400 mb-4" />
               <h3 className="text-xl font-bold text-cyan-400 mb-2">{story.name}</h3>
               <p className="text-cyan-300 text-sm mb-3">{story.achievement} - {story.year}</p>
-              <p className="text-gray-300 italic">"{story.quote}"</p>
+              <p className="text-gray-300 italic">{story.quote}</p>
             </div>
           ))}
         </div>

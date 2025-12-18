@@ -80,10 +80,11 @@ export async function POST(req: Request) {
       result,
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Submit Error:', error);
+    const errorMessage = error instanceof Error ? error.message : "Unexpected error";
     return NextResponse.json(
-      { status: "error", message: error.message || "Unexpected error" },
+      { status: "error", message: errorMessage },
       { status: 500 }
     );
   }

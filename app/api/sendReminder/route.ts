@@ -21,15 +21,15 @@ export async function POST(request: NextRequest) {
     console.log('Sending reminder to:', { name, email, mobile, month });
 
     // Simulated email sending
-    const emailContent = `
-      Dear ${name},
+    // const emailContent = `
+    //   Dear ${name},
       
-      This is a friendly reminder that your payment for ${month} is pending.
+    //   This is a friendly reminder that your payment for ${month} is pending.
       
-      Please complete your payment at your earliest convenience.
+    //   Please complete your payment at your earliest convenience.
       
-      Thank you!
-    `;
+    //   Thank you!
+    // `;
 
     // In production, replace with actual email/SMS service
     // await sendEmail(email, 'Payment Reminder', emailContent);
