@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
+import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 interface NavLink {
   name: string;
@@ -11,6 +13,8 @@ interface NavLink {
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -23,10 +27,9 @@ const Navbar: React.FC = () => {
 
   const navLinks: NavLink[] = [
     { name: "Home", href: "/" },
-    { name: "About", href: "#about" },
-    { name: "Admin", href: "#admin" },
+    { name: "About", href: "/about" },
+    { name: "Admin", href: "/admin" },
     { name: "Facility", href: "/facility" },
-    { name: "Gallery", href: "#gallery" },
     { name: "Contact", href: "/contact" },
   ];'[kvo'
 
@@ -72,20 +75,13 @@ const Navbar: React.FC = () => {
 
               {/* Action Buttons */}
               <div className="flex items-center space-x-3">
-                <a
-                  href="#book"
-                  className="bg-cyan-400 text-black px-6 py-2.5 rounded-lg hover:bg-cyan-300 hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300 font-semibold transform hover:scale-105"
-                >
-                  Book Seat
-                </a>
-
-                <a
-                  href="tel:+1234567890"
-                  className="flex items-center gap-2 border-2 border-cyan-400 text-cyan-400 px-6 py-2.5 rounded-lg hover:bg-cyan-400 hover:text-black transition-all duration-300 font-semibold transform hover:scale-105"
-                >
-                  <Phone size={18} />
-                  Call Now
-                </a>
+          <Button
+            variant="outline"
+            className="bg-black px-8 py-6 text-lg hover:scale-105 transition duration-300 ease-in-out z-10 cursor-pointer text-white"
+            onClick={()=> router.push("https://www.google.com/maps?q=28.4815556,77.5002778")}
+          >
+            Visit Us
+          </Button>
               </div>
             </div>
 

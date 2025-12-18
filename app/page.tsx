@@ -3,34 +3,39 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Wifi, Clock, Users, Shield, Lock, AirVent } from "lucide-react";
 import { BackgroundLines } from "@/components/ui/background-lines";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
 import Footer from "@/components/Footer";
 import { facilities, galleryImages, highlights, plans, testimonials } from "@/config/Data";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
+
+  const router = useRouter();
   
 
   return (
-    <main className="bg-black text-white min-h-screen w-full">
+    <main className="bg-black text-white min-h-screen w-full p-6">
       {/* ---------------- HERO SECTION ---------------- */}
-      <BackgroundLines className="flex items-center justify-center w-full flex-col px-4 bg-black min-h-screen">
+      <BackgroundLines className="flex items-center justify-center w-full flex-col px-4 bg-black min-h-[600px] md:min-h-[500px] lg:min-h-[600px]">
         <h2 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-600 to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
-          Jeet Library, <br />& <br /> Jeet PG.
+          Jeet Library
         </h2>
         <p className="max-w-xl mx-auto text-sm md:text-lg text-neutral-400  text-center">
           Experience a peaceful and distraction-free study environment designed
           to help you stay focused and productive every day.
         </p>
         <div className="flex flex-wrap justify-center gap-4 mt-8">
-          <Button className="bg-cyan-400 text-black hover:text-white hover:scale-105 transition duration-300 ease-in-out px-8 py-6 text-lg z-10 cursor-pointer">
+          <Button className="bg-cyan-400 text-black hover:text-white hover:scale-105 transition duration-300 ease-in-out px-8 py-6 text-lg z-10 cursor-pointer"
+          onClick={()=> router.push("https://docs.google.com/forms/d/e/1FAIpQLSc6yTO72WVPlHAqShDwEpsQCwoSjpV8TvDdrPwwYCLuvmJ3dg/viewform?vc=0&c=0&w=1&flr=0")}
+          >
             Book Your Seat
           </Button>
           <Button
             variant="outline"
             className="bg-black px-8 py-6 text-lg hover:scale-105 transition duration-300 ease-in-out z-10 cursor-pointer"
+            onClick={()=> router.push("https://www.google.com/maps?q=28.4815556,77.5002778")}
           >
             Visit Us
           </Button>
@@ -38,7 +43,7 @@ export default function HomePage() {
       </BackgroundLines>
 
       {/* ---------------- WHY CHOOSE US ---------------- */}
-      <section className="py-20 px-4">
+      <section className="py-5 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16">
             Why Choose{" "}
@@ -68,7 +73,7 @@ export default function HomePage() {
       </section>
 
       {/* Facilities */}
-      <section id="facilities" className="py-20 px-4">
+      <section id="facilities" className="py-5 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16">
             World-Class Facilities
@@ -90,7 +95,7 @@ export default function HomePage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-20 px-4 ">
+      <section id="pricing" className="py-5 md:py-20 px-4 ">
         <div className="max-w-7xl mx-auto ">
           <h2 className="text-4xl font-bold text-center mb-4">
             Plans & Pricing
@@ -138,6 +143,7 @@ export default function HomePage() {
                         ? "bg-cyan-500 hover:bg-cyan-600 cursor-pointer z-10 "
                         : "bg-white/10 hover:bg-white/20 cursor-pointer z-10 "
                     }`}
+                     onClick={()=> router.push("https://docs.google.com/forms/d/e/1FAIpQLSc6yTO72WVPlHAqShDwEpsQCwoSjpV8TvDdrPwwYCLuvmJ3dg/viewform?vc=0&c=0&w=1&flr=0")}
                   >
                     Select Plan
                   </Button>
@@ -152,21 +158,21 @@ export default function HomePage() {
       <AnimatedTestimonials testimonials={testimonials} />
 
       {/* Gallery Preview */}
-      <section className="py-20 px-4">
+      <section className="py-5 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16">
             Explore Our Spaces
           </h2>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-4 gap-6 justify-center">
             {galleryImages.map((img, idx) => (
               <div
                 key={idx}
-                className="relative h-64 w-full rounded-xl overflow-hidden"
+                className="relative h-64 w-full rounded-xl overflow-hidden "
               >
                 <DirectionAwareHover imageUrl={img.image}>
-                  <p className="font-bold text-lg">{img.title}</p>
-                  <p className="text-sm opacity-70">Click to explore more</p>
+                  <p className="font-bold text-lg text-black">{img.title}</p>
+                  <p className="text-sm opacity-70 text-black">Click to explore more</p>
                 </DirectionAwareHover>
               </div>
             ))}
@@ -175,30 +181,30 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 ">
+      <section className="py-5 md:py-20 px-4 ">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 hover:text-cyan-400">
             Ready to Begin Your Journey?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
             Join thousands of successful students who chose StudyHub
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button className="bg-cyan-400 text-black hover:text-white hover:scale-105 transition duration-300 ease-in-out px-8 py-6 text-lg cursor-pointer">
+            <Button className="bg-cyan-400 text-black hover:text-white hover:scale-105 transition duration-300 ease-in-out px-8 py-6 text-lg cursor-pointer"
+             onClick={()=> router.push("https://docs.google.com/forms/d/e/1FAIpQLSc6yTO72WVPlHAqShDwEpsQCwoSjpV8TvDdrPwwYCLuvmJ3dg/viewform?vc=0&c=0&w=1&flr=0")}
+             >
               Book Your Seat
             </Button>
             <Button
               variant="outline"
               className="bg-black px-8 py-6 text-lg hover:scale-105 transition duration-300 ease-in-out cursor-pointer"
+              onClick={() => router.push("https://www.google.com/maps?q=28.4815556,77.5002778")}
             >
               Visit Us
             </Button>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <Footer />
     </main>
   );
 }

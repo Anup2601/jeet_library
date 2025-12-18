@@ -44,27 +44,27 @@ const ContactPage: React.FC = () => {
   });
 
   const [showAlert, setShowAlert] = useState(false);
-   const [errors, setErrors] = useState<Partial<FormDataType>>({});
+  const [errors, setErrors] = useState<Partial<FormDataType>>({});
 
   // FIXED HANDLE SUBMIT ----------------------
-const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
-  e.preventDefault();
+  const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
 
-  if (!validateForm()) return; // ❗ Validation check added
+    if (!validateForm()) return; // ❗ Validation check added
 
-  setShowAlert(true);
+    setShowAlert(true);
 
-  setTimeout(() => setShowAlert(false), 3000);
+    setTimeout(() => setShowAlert(false), 3000);
 
-  setFormData({ name: "", email: "", phone: "", message: "" });
-  setErrors({});
-};
-
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ name: "", email: "", phone: "", message: "" });
+    setErrors({});
   };
 
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   // VALIDATION FUNCTION ------------------------
   const validateForm = () => {
@@ -80,8 +80,7 @@ const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
     else if (!/^\d{10}$/.test(formData.phone))
       newErrors.phone = "Phone must be 10 digits";
 
-    if (!formData.message.trim())
-      newErrors.message = "Message cannot be empty";
+    if (!formData.message.trim()) newErrors.message = "Message cannot be empty";
     else if (formData.message.length < 10)
       newErrors.message = "Message must be at least 10 characters";
 
@@ -120,21 +119,42 @@ const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
   ];
 
   const socialLinks: SocialLinkType[] = [
-    { icon: <Facebook className="w-5 h-5" />, name: "Facebook", url: "#", color: "hover:bg-blue-600" },
-    { icon: <Instagram className="w-5 h-5" />, name: "Instagram", url: "#", color: "hover:bg-pink-600" },
-    { icon: <Twitter className="w-5 h-5" />, name: "Twitter",   url: "#", color: "hover:bg-sky-500" },
-    { icon: <Linkedin className="w-5 h-5" />, name: "LinkedIn", url: "#", color: "hover:bg-blue-700" },
+    {
+      icon: <Facebook className="w-5 h-5" />,
+      name: "Facebook",
+      url: "#",
+      color: "hover:bg-blue-600",
+    },
+    {
+      icon: <Instagram className="w-5 h-5" />,
+      name: "Instagram",
+      url: "#",
+      color: "hover:bg-pink-600",
+    },
+    {
+      icon: <Twitter className="w-5 h-5" />,
+      name: "Twitter",
+      url: "#",
+      color: "hover:bg-sky-500",
+    },
+    {
+      icon: <Linkedin className="w-5 h-5" />,
+      name: "LinkedIn",
+      url: "#",
+      color: "hover:bg-blue-700",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <div className="pt-24 pb-12 px-4 text-center">
-        <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-cyan-400 to-white bg-clip-text text-transparent">
+        <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-white to-white bg-clip-text text-transparent">
           Get In Touch
         </h1>
         <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-          Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+          Have questions? We'd love to hear from you. Send us a message and
+          we'll respond as soon as possible.
         </p>
       </div>
 
@@ -153,7 +173,9 @@ const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
               <h3 className="text-lg font-bold mb-2">{info.title}</h3>
 
               {info.details.map((d, i) => (
-                <p key={i} className="text-gray-400 text-sm">{d}</p>
+                <p key={i} className="text-gray-400 text-sm">
+                  {d}
+                </p>
               ))}
             </div>
           ))}
@@ -163,136 +185,109 @@ const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Form */}
           <div className="bg-gray-900/80 border border-gray-800 rounded-2xl p-8">
-  <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
+            <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
 
-  {showAlert && (
-    <div className="mb-4 p-3 rounded-xl bg-cyan-400/20 border border-cyan-400 text-cyan-300">
-      Message sent! We'll get back to you soon.
-    </div>
-  )}
+            {showAlert && (
+              <div className="mb-4 p-3 rounded-xl bg-cyan-400/20 border border-cyan-400 text-cyan-300">
+                Message sent! We'll get back to you soon.
+              </div>
+            )}
 
-  <div className="space-y-5">
-    {/* NAME */}
-    <input
-      name="name"
-      value={formData.name}
-      onChange={handleChange}
-      placeholder="Your Name"
-      className={`w-full bg-black/40 border px-4 py-3 rounded-xl ${
-        errors.name ? "border-red-500" : "border-gray-700"
-      }`}
-    />
-    {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+            <div className="space-y-5">
+              {/* NAME */}
+              <input
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your Name"
+                className={`w-full bg-black/40 border px-4 py-3 rounded-xl ${
+                  errors.name ? "border-red-500" : "border-gray-700"
+                }`}
+              />
+              {errors.name && (
+                <p className="text-red-500 text-sm">{errors.name}</p>
+              )}
 
-    {/* EMAIL */}
-    <input
-      name="email"
-      value={formData.email}
-      onChange={handleChange}
-      placeholder="Email Address"
-      className={`w-full bg-black/40 border px-4 py-3 rounded-xl ${
-        errors.email ? "border-red-500" : "border-gray-700"
-      }`}
-    />
-    {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+              {/* EMAIL */}
+              <input
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email Address"
+                className={`w-full bg-black/40 border px-4 py-3 rounded-xl ${
+                  errors.email ? "border-red-500" : "border-gray-700"
+                }`}
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm">{errors.email}</p>
+              )}
 
-    {/* PHONE */}
-    <input
-      name="phone"
-      value={formData.phone}
-      onChange={handleChange}
-      placeholder="Phone Number"
-      className={`w-full bg-black/40 border px-4 py-3 rounded-xl ${
-        errors.phone ? "border-red-500" : "border-gray-700"
-      }`}
-    />
-    {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+              {/* PHONE */}
+              <input
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Phone Number"
+                className={`w-full bg-black/40 border px-4 py-3 rounded-xl ${
+                  errors.phone ? "border-red-500" : "border-gray-700"
+                }`}
+              />
+              {errors.phone && (
+                <p className="text-red-500 text-sm">{errors.phone}</p>
+              )}
 
-    {/* MESSAGE */}
-    <textarea
-      name="message"
-      value={formData.message}
-      onChange={handleChange}
-      rows={5}
-      placeholder="Your Message..."
-      className={`w-full bg-black/40 border px-4 py-3 rounded-xl ${
-        errors.message ? "border-red-500" : "border-gray-700"
-      }`}
-    />
-    {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
+              {/* MESSAGE */}
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={5}
+                placeholder="Your Message..."
+                className={`w-full bg-black/40 border px-4 py-3 rounded-xl ${
+                  errors.message ? "border-red-500" : "border-gray-700"
+                }`}
+              />
+              {errors.message && (
+                <p className="text-red-500 text-sm">{errors.message}</p>
+              )}
 
-    {/* BUTTON */}
-    <button
-      onClick={handleSubmit}
-      className="w-full bg-cyan-400 text-black py-3 rounded-xl font-semibold hover:bg-cyan-300 transition-all flex items-center justify-center gap-2"
-    >
-      <Send className="w-5 h-5" /> Send Message
-    </button>
-  </div>
-</div>
-
+              {/* BUTTON */}
+              <button
+                onClick={handleSubmit}
+                className="w-full bg-cyan-400 text-black py-3 rounded-xl font-semibold hover:bg-cyan-300 transition-all flex items-center justify-center gap-2"
+              >
+                <Send className="w-5 h-5" /> Send Message
+              </button>
+            </div>
+          </div>
 
           {/* Map + Buttons */}
           <div className="space-y-6">
             {/* Google Map */}
-            <div className="bg-gray-900/80 border border-gray-800 rounded-2xl overflow-hidden h-80">
+            <div className="bg-gray-900/80 border border-gray-800 rounded-2xl overflow-hidden h-120">
               <iframe
                 title="Map"
-                src="https://www.google.com/maps?q=Dadri,+UP&output=embed"
+                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.436555!2d77.5002712!3d28.4815396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ceb6d11793013%3A0xab35abcd434a2fda!2sJEET%20Library!5e0!3m2!1sen!2sin!4v1733224700000!5m2!1sen!2sin" 
                 width="100%"
                 height="100%"
                 className="grayscale hover:grayscale-0 transition"
               />
             </div>
 
-            {/* WhatsApp Button */}
-            <a
-              href="https://wa.me/919876543210"
-              target="_blank"
-              className="block bg-green-600 rounded-2xl p-6 hover:scale-105 transition"
-            >
-              <div className="flex items-center gap-4">
-                <MessageCircle className="w-10 h-10 text-white" />
-                <div>
-                  <h3 className="text-xl font-bold">Chat on WhatsApp</h3>
-                  <p className="text-green-100 text-sm">Instant replies</p>
-                </div>
-              </div>
-            </a>
-
             {/* Directions Button */}
             <a
-              href="https://maps.google.com/?q=Dadri+Uttar+Pradesh"
+              href="https://www.google.com/maps?q=28.4815556,77.5002778"
               target="_blank"
-              className="block bg-cyan-600 rounded-2xl p-6 hover:scale-105 transition"
+              className="block bg-cyan-400 text-black rounded-2xl p-6 hover:scale-105 transition"
             >
               <div className="flex items-center gap-4">
-                <MapPin className="w-10 h-10 text-white" />
+                <MapPin className="w-10 h-10 text-black" />
                 <div>
                   <h3 className="text-xl font-bold">Get Directions</h3>
-                  <p className="text-cyan-100 text-sm">Navigate Easily</p>
+                  <p className="text-black text-sm">Navigate Easily</p>
                 </div>
               </div>
             </a>
-          </div>
-        </div>
-
-        {/* Social Links */}
-        <div className="mt-16 bg-gray-900/80 border border-gray-800 rounded-2xl p-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Connect With Us</h2>
-          <p className="text-gray-400 mb-6">Follow us for updates</p>
-
-          <div className="flex justify-center gap-4">
-            {socialLinks.map((s, i) => (
-              <a
-                key={i}
-                href={s.url}
-                target="_blank"
-                className={`w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center border border-gray-700 hover:scale-110 transition ${s.color}`}
-              >
-                {s.icon}
-              </a>
-            ))}
           </div>
         </div>
       </div>

@@ -79,9 +79,6 @@ const FacilitiesPage = () => {
       {/* Hero Section */}
       <div className="relative overflow-hidden pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="flex justify-center mb-6">
-            <Sparkles className="w-12 h-12 text-cyan-400 animate-pulse" />
-          </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
             World-Class Facilities
           </h1>
@@ -97,18 +94,18 @@ const FacilitiesPage = () => {
           {facilities.map((facility, index) => (
             <div
               key={index}
-              className="group relative bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-6 hover:border-cyan-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-400/20 hover:-translate-y-2"
+              className="group relative bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-6 hover:border-cyan-400/50 transition-all duration-500 hover:shadow-2xl  hover:-translate-y-2"
               style={{
                 animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
               }}
             >
               {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/0 to-cyan-400/0 group-hover:from-cyan-400/5 group-hover:to-transparent rounded-2xl transition-all duration-500" />
+              <div className="absolute inset-0 bg-cyan-400/0 to-cyan-400/0 rounded-2xl transition-all duration-500" />
               
               {/* Content */}
               <div className="relative z-10">
                 {/* Icon */}
-                <div className="w-16 h-16 bg-gradient-to-br from-cyan-400/20 to-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-cyan-400/50">
+                <div className="w-16 h-16 bg-gradient-to-br from-cyan-400/20 to-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-cyan-400/50">
                   {facility.icon}
                 </div>
 
@@ -130,31 +127,6 @@ const FacilitiesPage = () => {
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="max-w-4xl mx-auto px-4 pb-20 text-center">
-        <div className="bg-gradient-to-r from-cyan-400/10 via-cyan-500/10 to-cyan-400/10 border border-cyan-400/30 rounded-3xl p-8 md:p-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            Ready to Start Your Journey?
-          </h2>
-          <p className="text-gray-300 mb-8 text-lg">
-            Join hundreds of students who trust Jeet Library for their exam preparation
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#book"
-              className="bg-cyan-400 text-black px-8 py-4 rounded-xl hover:bg-cyan-300 hover:shadow-xl hover:shadow-cyan-400/50 transition-all duration-300 font-semibold text-lg transform hover:scale-105"
-            >
-              Book Your Seat Now
-            </a>
-            <a
-              href="#visit"
-              className="border-2 border-cyan-400 text-cyan-400 px-8 py-4 rounded-xl hover:bg-cyan-400 hover:text-black hover:shadow-xl hover:shadow-cyan-400/50 transition-all duration-300 font-semibold text-lg transform hover:scale-105"
-            >
-              Visit Us Today
-            </a>
-          </div>
-        </div>
-      </div>
 
       <style jsx>{`
         @keyframes fadeInUp {
