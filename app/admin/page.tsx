@@ -14,24 +14,27 @@ import { useRouter } from "next/navigation";
 
 // Types
 interface StudentData {
-  "Student Name": string;
-  "Father's Name": string;
-  "Date of Birth": string;
-  Gender: string;
-  Nationality: string;
-  Address: string;
+  "sn": string;
+  "Timestamp": string;
+  "Name of student": string;
+  "DOB": string;
+  "Gender ": string;
+  "nationalty": string;
+  "Language known ": string;
+  "Permanent Home Address": string;
   "Mobile No": string;
   "Email ID": string;
   "Joining Date": string;
-  "Advance Amount": string;
-  "Payment Mode": string;
+  "Advance Amount ": string;
   "Time Duration": string;
   "Seat No": string;
-  "Medical Condition": string;
-  "Medical Details": string;
-  "How Did You Hear About Us": string;
-  Photo: string;
+  "Do you suffer from any medical condition/disability that may affect your studies?": string;
+  "How did you hear about us?": string;
+  "Mode of payment ": string;
+  "Photo": string;
   "ID Proof": string;
+  "Father, s name": string;
+  "Remarks ": string;
 }
 
 const ADMIN_KEY = process.env.NEXT_PUBLIC_ADMIN_KEY;
@@ -151,15 +154,15 @@ function DataTable({
 
   const filteredData = data.filter((student) => {
     const matchesSearch =
-      (student["Student Name"]?.toLowerCase() || "")
+      (student["Name of student"]?.toLowerCase() || "")
         .includes(searchTerm.toLowerCase()) ||
       (student["Mobile No"] || "").includes(searchTerm) ||
       (student["Email ID"]?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
       (student["Seat No"]?.toLowerCase() || "").includes(searchTerm.toLowerCase());
 
-    const matchesGender = !filterGender || student["Gender"] === filterGender;
+    const matchesGender = !filterGender || student["Gender "] === filterGender;
     const matchesMedical =
-      !filterMedical || student["Medical Condition"] === filterMedical;
+      !filterMedical || student["Do you suffer from any medical condition/disability that may affect your studies?"] === filterMedical;
 
     return matchesSearch && matchesGender && matchesMedical;
   });
@@ -196,7 +199,7 @@ function DataTable({
             <option value="Male" className="bg-black">
               Male
             </option>
-            <option value="Female" className="bg-black">
+            <option value="female" className="bg-black">
               Female
             </option>
             <option value="Other" className="bg-black">
@@ -286,12 +289,12 @@ function DataTable({
                     {student["Seat No"]}
                   </td>
                   <td className="px-4 py-3 text-white">
-                    {student["Student Name"]}
+                    {student["Name of student"]}
                   </td>
                   <td className="px-4 py-3 text-white">
-                    {student["Father's Name"]}
+                    {student["Father, s name"]}
                   </td>
-                  <td className="px-4 py-3 text-white">{student["Gender"]}</td>
+                  <td className="px-4 py-3 text-white">{student["Gender "]}</td>
                   <td className="px-4 py-3 text-white">
                     {student["Mobile No"]}
                   </td>
@@ -352,7 +355,7 @@ function StudentDetailsModal({
                   Student Name
                 </label>
                 <p className="text-sm text-white mt-1">
-                  {student["Student Name"]}
+                  {student["Name of student"]}
                 </p>
               </div>
               <div>
@@ -360,7 +363,7 @@ function StudentDetailsModal({
                   Father&apos;s Name
                 </label>
                 <p className="text-sm text-white mt-1">
-                  {student["Father's Name"]}
+                  {student["Father, s name"]}
                 </p>
               </div>
               <div>
@@ -368,28 +371,36 @@ function StudentDetailsModal({
                   Date of Birth
                 </label>
                 <p className="text-sm text-white mt-1">
-                  {student["Date of Birth"]}
+                  {student["DOB"]}
                 </p>
               </div>
               <div>
                 <label className="text-xs font-medium text-white uppercase">
                   Gender
                 </label>
-                <p className="text-sm text-white mt-1">{student["Gender"]}</p>
+                <p className="text-sm text-white mt-1">{student["Gender "]}</p>
               </div>
               <div>
                 <label className="text-xs font-medium text-white uppercase">
                   Nationality
                 </label>
                 <p className="text-sm text-white mt-1">
-                  {student["Nationality"]}
+                  {student["nationalty"]}
+                </p>
+              </div>
+              <div>
+                <label className="text-xs font-medium text-white uppercase">
+                  Language Known
+                </label>
+                <p className="text-sm text-white mt-1">
+                  {student["Language known "]}
                 </p>
               </div>
               <div className="sm:col-span-2">
                 <label className="text-xs font-medium text-white uppercase">
                   Address
                 </label>
-                <p className="text-sm text-white mt-1">{student["Address"]}</p>
+                <p className="text-sm text-white mt-1">{student["Permanent Home Address"]}</p>
               </div>
             </div>
           </div>
@@ -450,7 +461,7 @@ function StudentDetailsModal({
                   Advance Amount
                 </label>
                 <p className="text-sm text-white mt-1">
-                  {student["Advance Amount"]}
+                  {student["Advance Amount "]}
                 </p>
               </div>
               <div>
@@ -458,7 +469,7 @@ function StudentDetailsModal({
                   Payment Mode
                 </label>
                 <p className="text-sm text-white mt-1">
-                  {student["Payment Mode"]}
+                  {student["Mode of payment "]}
                 </p>
               </div>
               <div>
@@ -466,7 +477,15 @@ function StudentDetailsModal({
                   Referral Source
                 </label>
                 <p className="text-sm text-white mt-1">
-                  {student["How Did You Hear About Us"]}
+                  {student["How did you hear about us?"]}
+                </p>
+              </div>
+              <div className="sm:col-span-2">
+                <label className="text-xs font-medium text-white uppercase">
+                  Remarks
+                </label>
+                <p className="text-sm text-white mt-1">
+                  {student["Remarks "] || "N/A"}
                 </p>
               </div>
             </div>
@@ -478,20 +497,12 @@ function StudentDetailsModal({
               Medical Information
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
+              <div className="sm:col-span-2">
                 <label className="text-xs font-medium text-white uppercase">
                   Medical Condition
                 </label>
                 <p className="text-sm text-white mt-1">
-                  {student["Medical Condition"]}
-                </p>
-              </div>
-              <div className="sm:col-span-2">
-                <label className="text-xs font-medium text-white uppercase">
-                  Medical Details
-                </label>
-                <p className="text-sm text-white mt-1">
-                  {student["Medical Details"] || "N/A"}
+                  {student["Do you suffer from any medical condition/disability that may affect your studies?"] || "N/A"}
                 </p>
               </div>
             </div>
@@ -507,17 +518,35 @@ function StudentDetailsModal({
                 <label className="text-xs font-medium text-white uppercase">
                   Photo
                 </label>
-                <p className="text-sm text-cyan-400 mt-1 hover:underline cursor-pointer">
-                  {student["Photo"] ? "View Photo" : "Not uploaded"}
-                </p>
+                {student["Photo"] ? (
+                  <a
+                    href={student["Photo"]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-cyan-400 mt-1 hover:underline block"
+                  >
+                    View Photo
+                  </a>
+                ) : (
+                  <p className="text-sm text-gray-400 mt-1">Not uploaded</p>
+                )}
               </div>
               <div>
                 <label className="text-xs font-medium text-white uppercase">
                   ID Proof
                 </label>
-                <p className="text-sm text-cyan-400 mt-1 hover:underline cursor-pointer">
-                  {student["ID Proof"] ? "View ID Proof" : "Not uploaded"}
-                </p>
+                {student["ID Proof"] ? (
+                  <a
+                    href={student["ID Proof"]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-cyan-400 mt-1 hover:underline block"
+                  >
+                    View ID Proof
+                  </a>
+                ) : (
+                  <p className="text-sm text-gray-400 mt-1">Not uploaded</p>
+                )}
               </div>
             </div>
           </div>
@@ -557,11 +586,11 @@ export default function StudentDataViewer() {
       const [headers, ...rows] = json.values;
 
       const formattedData: StudentData[] = rows.map((row: string[]) => {
-        const obj: any = {};
+        const obj: Record<string, string> = {};
         headers.forEach((header: string, index: number) => {
           obj[header] = row[index] || "";
         });
-        return obj;
+        return obj as unknown as StudentData;
       });
 
       setTimeout(() => {

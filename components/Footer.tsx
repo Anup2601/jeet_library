@@ -7,7 +7,7 @@ const Footer = () => {
       id="contact"
       className="bg-black border-t border-white/10 py-8 sm:py-12 px-4"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div className=" mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:pl-38">
         <div className="text-center sm:text-left">
           <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
             Jeet Library
@@ -48,7 +48,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="text-center sm:text-left">
+        <div className="hidden md:block text-center sm:text-left">
           <h4 className="font-semibold mb-4 text-white">Hours</h4>
           <p className="text-sm text-gray-100">Open 24/7</p>
           <p className="text-sm text-gray-100 mt-2">365 days a year</p>

@@ -80,39 +80,38 @@ export const facilities: FacilityItem[] = [
 
 export const plans: PlanItem[] = [
   {
-    name: "Daily Pass",
-    price: "₹100",
-    features: ["8 hours access", "WiFi included", "Basic seating"],
+    name: "Slot 1",
+    price: "₹799",
+    features: [
+      "6 AM to 10 AM",
+      "4 hours morning access",
+      "WiFi included",
+      "AC & comfortable seating",
+      "Washroom access",
+    ],
   },
   {
-    name: "Monthly",
-    price: "₹1,199",
+    name: "Slot 2",
+    price: "₹1,499",
     features: [
-      "Unlimited access",
-      "Premium seating",
+      "10 AM to 6 PM",
+      "8 hours day access",
+      "WiFi included",
+      "AC & comfortable seating",
+      "Washroom access",
       "Locker facility",
-      "Washrooms",
     ],
     popular: true,
   },
   {
-    name: "Quarterly",
-    price: "₹2,499",
+    name: "Slot 3",
+    price: "₹999",
     features: [
-      "All monthly benefits",
-      "Priority booking",
-      "Study materials",
-      "Career counseling",
-    ],
-  },
-  {
-    name: "Yearly",
-    price: "₹8,999",
-    features: [
-      "All quarterly benefits",
-      "Private cabin option",
-      "24/7 access",
-      "Guest passes",
+      "6 PM to 12 AM",
+      "6 hours evening access",
+      "WiFi included",
+      "AC & comfortable seating",
+      "Washroom access",
     ],
   },
 ];

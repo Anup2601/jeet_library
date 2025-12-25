@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const sheetName = month;
+    // const sheetName = month;
       const range = `${month}!A1:M1000`;
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(range)}?key=${API_KEY}`;
 

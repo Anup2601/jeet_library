@@ -8,7 +8,7 @@ import { BackgroundLines } from "@/components/ui/background-lines";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
 // import Footer from "@/components/Footer";
-import { facilities, galleryImages, highlights, plans, testimonials } from "@/config/Data";
+import { galleryImages, highlights, plans, testimonials } from "@/config/Data";
 import { useRouter } from "next/navigation";
 
 export default function HomePage() {
@@ -74,9 +74,9 @@ export default function HomePage() {
             Plans & Pricing
           </h2>
           <p className="text-gray-100 text-center mb-16">
-            Choose the plan that fits your goals
+            Choose the time slot that fits your schedule
           </p>
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {plans.map((plan, idx) => (
               <Card
                 key={idx}
@@ -95,12 +95,7 @@ export default function HomePage() {
                   <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                   <div className="mb-6">
                     <span className="text-4xl font-bold">{plan.price}</span>
-                    <span className="text-gray-400">
-                      /
-                      {plan.name === "Daily Pass"
-                        ? "day"
-                        : plan.name.toLowerCase()}
-                    </span>
+                    <span className="text-gray-400">/month</span>
                   </div>
                   <ul className="space-y-3 mb-6">
                     {plan.features.map((feature, i) => (
@@ -116,7 +111,7 @@ export default function HomePage() {
                         ? "bg-cyan-500 hover:bg-cyan-600 cursor-pointer z-10 "
                         : "bg-white/10 hover:bg-white/20 cursor-pointer z-10 "
                     }`}
-                     onClick={()=> router.push("https://docs.google.com/forms/d/e/1FAIpQLSc6yTO72WVPlHAqShDwEpsQCwoSjpV8TvDdrPwwYCLuvmJ3dg/viewform?vc=0&c=0&w=1&flr=0")}
+                     onClick={()=> router.push("https://docs.google.com/forms/d/1DuUIKZsHc3BLUbP31a7Wp5xz9ZKKtGKq1T-0LWCwmpA/viewform?edit_requested=true")}
                   >
                     Select Plan
                   </Button>
@@ -194,7 +189,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button className="bg-cyan-400 text-black hover:text-white hover:scale-105 transition duration-300 ease-in-out px-8 py-6 text-lg cursor-pointer"
-             onClick={()=> router.push("https://docs.google.com/forms/d/e/1FAIpQLSc6yTO72WVPlHAqShDwEpsQCwoSjpV8TvDdrPwwYCLuvmJ3dg/viewform?vc=0&c=0&w=1&flr=0")}
+             onClick={()=> router.push("https://docs.google.com/forms/d/1DuUIKZsHc3BLUbP31a7Wp5xz9ZKKtGKq1T-0LWCwmpA/viewform?edit_requested=true")}
              >
               Book Your Seat
             </Button>

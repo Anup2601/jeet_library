@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import twilio from 'twilio';
+// import twilio from 'twilio';
 
 export async function POST(request: NextRequest) {
   try {
