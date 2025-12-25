@@ -19,32 +19,6 @@ export default function PaymentAdminPage() {
     setSelectedMonth(currentMonth);
   }, []);
 
-  // Fetch payments when month changes
-  // useEffect(() => {
-  //   if (selectedMonth) {
-  //     fetchPayments(selectedMonth);
-  //   }
-  // }, [selectedMonth]);
-
-  // Fetch payments from API
-  // const fetchPayments = async (month: string) => {
-  //   setIsLoading(true);
-  //   try {
-  //     const response = await fetch(`/api/getPayments?month=${month}`);
-  //     const data = await response.json();
-      
-  //     if (data.success) {
-  //       setPayments(data.payments);
-  //     } else {
-  //       showToast('Failed to fetch payments', 'error');
-  //     }
-  //   } catch (error) {
-  //     showToast('Error loading payments', 'error');
-  //     console.error('Fetch error:', error);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
   const fetchPayments = useCallback(async (month: string) => {
   setIsLoading(true);
   try {
@@ -134,7 +108,7 @@ export default function PaymentAdminPage() {
   return (
     <div className="min-h-screen bg-black text-white p-4 md:p-8">
       {/* Header */}
-      <div className="max-w-7xl mx-auto mb-8">
+      <div className=" mx-auto mb-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-2 text-cyan-400">
           Payment Management System
         </h1>
@@ -142,7 +116,7 @@ export default function PaymentAdminPage() {
       </div>
 
       {/* Month Selector */}
-      <div className="max-w-7xl mx-auto mb-6">
+      <div className=" mx-auto mb-6">
         <MonthSelector
           selectedMonth={selectedMonth}
           onMonthChange={setSelectedMonth}
@@ -154,7 +128,7 @@ export default function PaymentAdminPage() {
         <LoadingSpinner />
       ) : (
         /* Payment Table */
-        <div className="max-w-7xl mx-auto">
+        <div className=" mx-auto">
           <PaymentTable
             payments={payments}
             onSendReminder={handleSendReminder}

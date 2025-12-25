@@ -1,11 +1,24 @@
 export interface PaymentRow {
-  rowId: number;
+  rowId: string;
+
+  seatNo: string;
   studentName: string;
+
+  joiningDate: string;   // yyyy-mm-dd
+  dueDate: string;       // yyyy-mm-dd
+
+  monthlyAmount: number;
   mobile: string;
-  email: string;
-  course: string;
-  paymentStatus: 'Paid' | 'Pending';
-  lastPaymentDate: string;
+
+  receivedPayment: number;
+  receivedDate?: string;
+
+  balanceAmount: number;
+  remark?: string;
+
+  email?: string; 
+  status?: string;
+  verificationDate?: string;       
 }
 
 export interface StudentDetail {

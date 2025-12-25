@@ -5,6 +5,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 interface NavLink {
   name: string;
@@ -50,14 +51,21 @@ const Navbar: React.FC = () => {
             : "bg-black"
         }`}
       >
-        <div className="w-full px-16 sm:px-6 lg:px-8">
+        <div className="w-full px-3 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link
               href="/"
-              className="text-2xl px-8 font-bold text-white hover:text-cyan-400 transition-colors duration-300"
+              className="flex items-center gap-3 px-8 text-white hover:text-cyan-400 transition-colors duration-300"
             >
-              Jeet Library
+              <Image
+                src="/logo.png"
+                alt="Jeet Library Logo"
+                width={36}
+                height={36}
+                priority
+              />
+              <span className="text-2xl font-bold">Jeet Library</span>
             </Link>
 
             {/* Desktop Menu */}
@@ -134,7 +142,7 @@ const Navbar: React.FC = () => {
               </a>
 
               <a
-                href="tel:+1234567890"
+                href="tel:+919910530032"
                 className="flex justify-center items-center gap-2 border-2 border-cyan-400 text-cyan-400 px-6 py-3 rounded-xl hover:bg-cyan-400 hover:text-black transition-all duration-300"
                 onClick={() => setIsOpen(false)}
               >

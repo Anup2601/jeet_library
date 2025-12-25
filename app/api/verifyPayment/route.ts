@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { google } from 'googleapis';
 
 // Google Sheets Configuration
-const SHEET_ID = process.env.GOOGLE_SHEET_ID || 'YOUR_SHEET_ID';
+const SHEET_ID = process.env.GOOGLE_SHEET_ID_PAYMENT || 'YOUR_SHEET_ID';
 
 export async function POST(request: NextRequest) {
   try {
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     const today = new Date().toLocaleDateString('en-US');
 
     // Update the sheet (Payment Status and Payment Date)
-    const range = `${month}!E${rowId}:F${rowId}`; // Columns E & F (Payment Status, Date)
+    const range = `${month}!L${rowId}:M${rowId}`; // Columns E & F (Payment Status, Date)
     
     await sheets.spreadsheets.values.update({
       spreadsheetId: SHEET_ID,
