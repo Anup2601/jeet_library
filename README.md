@@ -7,7 +7,7 @@ This project is bootstrapped with **create-next-app**.
 
 ---
 
-##  Getting Started
+##  Getting Started 
 
 First, install dependencies:
 
