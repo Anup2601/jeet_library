@@ -9,6 +9,7 @@ This project is bootstrapped with **create-next-app**.
 
 ##  Getting Started
 
+
 First, install dependencies:
 
 ```bash
