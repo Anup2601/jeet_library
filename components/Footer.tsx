@@ -22,7 +22,7 @@ const Footer = () => {
             <a href="#" className="text-gray-100 hover:text-cyan-400 transition">
               <Twitter className="w-5 h-5" />
             </a>
-            <a href="#" className="text-gray-100 hover:text-cyan-400 transition">
+            <a href="https://www.instagram.com/jeetlibrary1?igsh=MWhwZDF2aXhldWtlMQ==" className="text-gray-100 hover:text-cyan-400 transition">
               <Instagram className="w-5 h-5" />
             </a>
             <a href="#" className="text-gray-100 hover:text-cyan-400 transition">
@@ -40,7 +40,7 @@ const Footer = () => {
               <Phone className="w-4 h-4 flex-shrink-0" /> +91 98765 43210
             </li>
             <li className="flex items-center justify-center sm:justify-start gap-2">
-              <Mail className="w-4 h-4 flex-shrink-0" /> info@studyhub.com
+              <Mail className="w-4 h-4 flex-shrink-0" /> libraryrawat@gmail.com
             </li>
             <li className="flex items-center justify-center sm:justify-start gap-2">
               <MapPin className="w-4 h-4 flex-shrink-0" />  Greater Noida, Uttar Pradesh, India
