@@ -160,7 +160,7 @@ const ContactPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 pb-20">
         {/* Contact Info Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {contactInfo.map((info, index) => (
             <div
               key={index}
@@ -179,7 +179,7 @@ const ContactPage: React.FC = () => {
               ))}
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Form + Map Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

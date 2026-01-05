@@ -43,7 +43,7 @@ const AboutPage = () => {
             About Our Library
           </h1>
           <p className="text-xl text-white max-w-3xl mx-auto">
-            Empowering minds, nurturing dreams, and building futures since 2015
+            A Sanctuary of Silence, Study, and Self-Transformation
           </p>
         </div>
       </div>
@@ -91,10 +91,11 @@ const AboutPage = () => {
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-4">Our Mission</h3>
                   <p className="text-gray-300 text-lg leading-relaxed">
-                    To provide a world-class learning environment that fosters academic excellence, 
-                    intellectual growth, and personal development. We are committed to creating a space 
-                    where students can focus, learn, and achieve their educational goals with access to 
-                    premium resources and unwavering support.
+                    The mission of Jeet Library is simple, sincere, and silent:
+                    <li>To provide a peaceful, clean, and disciplined study environment</li>
+                    <li>To protect silence as a shared spiritual value</li>
+                    <li>To encourage deep reading, regular study, and self-control</li>
+                    <li>To support students and learners in building inner stability along with academic excellence</li>
                   </p>
                 </div>
               </div>
@@ -108,10 +109,12 @@ const AboutPage = () => {
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-4">Our Vision</h3>
                   <p className="text-gray-300 text-lg leading-relaxed">
-                    To be the most trusted and preferred learning destination in the region, recognized 
-                    for our commitment to student success and academic excellence. We envision a community 
-                    where every student has the opportunity to unlock their full potential and transform 
-                    their aspirations into achievements.
+                    The vision of Jeet Library is to create a sacred learning space where knowledge and inner peace grow together.
+                    It envisions learners who are:
+                    <li>Calm yet ambitious</li>
+                    <li>Disciplined yet creative</li>
+                    <li>Focused yet thoughtful</li>
+                    Jeet Library seeks to nurture not just successful professionals, but aware, responsible, and grounded individuals who carry clarity into their careers and consciousness into their lives.
                   </p>
                 </div>
               </div>
@@ -125,10 +128,7 @@ const AboutPage = () => {
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-4">Our Story</h3>
                   <p className="text-gray-300 text-lg leading-relaxed mb-4">
-                    Founded in 2015 by a group of educators passionate about creating the perfect study 
-                    environment, our library began as a small reading room with just 30 seats. The founders 
-                    recognized the need for a dedicated space where students could escape distractions and 
-                    focus entirely on their academic pursuits.
+                    Jeet Library in Jagat Farm in Greater Noida is not merely a physical space created for reading and examination preparation. It is a conscious environment, thoughtfully designed for those who understand that true education requires more than books; it requires silence, discipline, patience, and inner balance. In an age where distractions dominate attention and speed replaces depth, Jeet Library stands quietly as a refuge. It offers learners a space where the mind can slow down, settle, and rise with clarity. Here, knowledge is not consumed hurriedly; it is absorbed with awareness.
                   </p>
                   <p className="text-gray-300 text-lg leading-relaxed">
                     Over the years, we&apos;ve grown from that modest beginning to become a premier learning 

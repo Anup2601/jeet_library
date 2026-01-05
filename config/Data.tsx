@@ -123,7 +123,7 @@ export const testimonials: TestimonialItem[] = [
     quote:
       "The perfect environment for focused study. The staff is supportive and facilities are top-notch!",
     rating: 5,
-    src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
+    src: "/t1.jpeg",
   },
   {
     name: "Rahul Verma",
@@ -131,7 +131,7 @@ export const testimonials: TestimonialItem[] = [
     quote:
       "Best library in the city! Clean, quiet, and well-maintained. Highly recommend for serious students.",
     rating: 5,
-    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+    src: "/t2.jpeg",
   },
   {
     name: "Anjali Singh",
@@ -139,7 +139,23 @@ export const testimonials: TestimonialItem[] = [
     quote:
       "I've been a member for 2 years. The community here is amazing and motivating!",
     rating: 5,
-    src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f",
+    src: "/t3.jpeg",
+  },
+  {
+    name: "Anjali Singh",
+    designation: "CA Student",
+    quote:
+      "I've been a member for 2 years. The community here is amazing and motivating!",
+    rating: 5,
+    src: "/t4.jpeg",
+  },
+  {
+    name: "Anjali Singh",
+    designation: "CA Student",
+    quote:
+      "I've been a member for 2 years. The community here is amazing and motivating!",
+    rating: 5,
+    src: "/t5.jpeg",
   },
 ];
 

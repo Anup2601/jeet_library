@@ -9,6 +9,7 @@ import {
   Filter,
   X,
   Coins,
+  ChartBarIcon,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -671,6 +672,20 @@ export default function StudentDataViewer() {
             <div className="flex gap-2">
               <button
                 onClick={() => router.push("/admin/payment")}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-black bg-cyan-400 border border-slate-300 rounded-lg hover:bg-black hover:text-white transition-colors"
+              >
+                <Coins className="w-4 h-4" />
+                <span className="hidden sm:inline">Monthly Payment</span>
+              </button>
+              <button
+                onClick={() => router.push("https://docs.google.com/spreadsheets/d/1Jt13JiVa9E9TTEPx7fzqKLsdGJXx1jzV/edit?gid=1174865020#gid=1174865020")}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-black bg-cyan-400 border border-slate-300 rounded-lg hover:bg-black hover:text-white transition-colors"
+              >
+                <ChartBarIcon className="w-4 h-4" />
+                <span className="hidden sm:inline">Seat Allotment</span>
+              </button>
+              <button
+                onClick={() => router.push("https://docs.google.com/spreadsheets/d/17Xh6PSpufi4QkYQZiv_LmIYi8ecr3NQGjtEVxWDxnRk/edit?gid=1266069336#gid=1266069336")}
                 className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-black bg-cyan-400 border border-slate-300 rounded-lg hover:bg-black hover:text-white transition-colors"
               >
                 <Coins className="w-4 h-4" />

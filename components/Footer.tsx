@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Mail, MapPin, Phone, Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
 import React from "react";
 
 const Footer = () => {
@@ -25,8 +25,8 @@ const Footer = () => {
             <a href="https://www.instagram.com/jeetlibrary1?igsh=MWhwZDF2aXhldWtlMQ==" className="text-gray-100 hover:text-cyan-400 transition">
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="#" className="text-gray-100 hover:text-cyan-400 transition">
-              <Linkedin className="w-5 h-5" />
+            <a href="https://www.youtube.com/@jeet-library" className="text-gray-100 hover:text-cyan-400 transition">
+              <Youtube className="w-5 h-5" />
             </a>
           </div>
         </div>
@@ -43,7 +43,7 @@ const Footer = () => {
               <Mail className="w-4 h-4 flex-shrink-0" /> libraryrawat@gmail.com
             </li>
             <li className="flex items-center justify-center sm:justify-start gap-2">
-              <MapPin className="w-4 h-4 flex-shrink-0" />  Greater Noida, Uttar Pradesh, India
+              <MapPin className="w-4 h-4 flex-shrink-0" /> LS Plaza, Gali Number 9, Jagat Farm, Block E, GTB Market, Gamma 1, Greater Noida, Uttar Pradesh 201310
             </li>
           </ul>
         </div>
